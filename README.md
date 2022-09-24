@@ -1,62 +1,35 @@
-# Attila
+# Attila-somni
 
-A content focused responsive theme for [Ghost](https://github.com/tryghost/ghost/). See a demo at: [attila.peteramende.de](https://attila.peteramende.de/)
+A content focused responsive theme for [Ghost](https://github.com/tryghost/ghost/). Customized for somni's own blog, [솜니.로그](https://log.somni.one).
 
 ## ♥️ Support
 
-You can [buy me a drink](https://paypal.me/zutrinken) if you enjoy using Attila. Cheers 🍻
+You can [buy original author a drink](https://paypal.me/zutrinken) if you enjoy using Attila. Cheers 🍻
 
 ## 📷 Screenshot
 
-<img src="https://raw.githubusercontent.com/zutrinken/attila/master/src/screenshot.png" />
+To be added.
 
 ## ⭐️ Features
-
-* Theme options
-* Responsive layout
-* Light and Dark Mode
-* Search support
-* Post reading progress
-* Code highlight including line numbers
-* Comments and Disqus (Theme option)
-* Ghost accent color
+### Original features
+  * Theme options
+  * Responsive layout
+  * Light and Dark Mode
+  * Search support
+  * Post reading progress
+  * Code highlight including line numbers
+  * Comments and Disqus (Theme option)
+  * Ghost accent color
+### Customized additions
+  * To be added.
 
 ## 🌍 Localization
 
-🟩 Up to date  🟧 Missing strings
-
-| Code | Flag | Language | Status | Translator |
-| :--: | :--: | :------: | :----: | :--------: |
-| `en` | 🇬🇧 | English | 🟩 | |
-| `de` | 🇩🇪 | German | 🟩 | |
-| `es` | 🇪🇸 | Spanish | 🟩 | [r1p](https://github.com/r1p) |
-| `fr` | 🇫🇷 | French | 🟩 | [robink](https://github.com/robink), [alsyia](https://github.com/alsyia) |
-| `it` | 🇮🇹 | Italian | 🟩 | [fmaida](https://github.com/fmaida), [undrivendev](https://github.com/undrivendev) |
-| `no` | 🇳🇴 | Norwegian | 🟧 | [arthurnoerve](https://github.com/arthurnoerve), [oisann](https://github.com/oisann), [Givemeurcookies](https://github.com/givemeurcookies) |
-| `zh` | 🇨🇳 | Chinese | 🟩 | [hao-lee](https://github.com/hao-lee), [izumiko](https://github.com/izumiko), [emperorjoker](https://github.com/emperorjoker) |
-| `zh_tw` | 🇨🇳 | Chinese Traditional | 🟩 | [Petingo](https://github.com/Petingo)
-| `id` | 🇮🇩 | Indonesian | 🟧 | [simplyeazy](https://github.com/simplyeazy) |
-| `ro` | 🇷🇴 | Romanian | 🟧 | [cdorin93](https://github.com/cdorin93) |
-| `ru` | 🇷🇺 | Russian | 🟩 | [schamberg97](https://github.com/schamberg97), [atjanov](https://github.com/atjanov) |
-| `tr` | 🇹🇷 | Turkish | 🟩 | [cgrgrbz](https://github.com/cgrgrbz), [electricalgorithm](https://github.com/electricalgorithm) |
-| `sv` | 🇸🇪 | Swedish | 🟩 | [martenj77](https://github.com/martenj77), [LarssonOliver](https://github.com/LarssonOliver) |
-| `cs` | 🇨🇿 | Czech | 🟩 | [lunakv](https://github.com/lunakv), [rdolezel](https://github.com/rdolezel) |
-| `pt` | 🇵🇹 | Portuguese | 🟧 | [matheusvanzan](https://github.com/matheusvanzan) |
-| `vi` | 🇻🇳 | Vietnamese | 🟩 | [JustHmmmm](https://github.com/justhmmmm), [mastoduy](https://github.com/mastoduy) |
-| `el` | 🇬🇷 | Greek | 🟧 | [thiodordelis](https://github.com/thiodordelis) |
-| `dk` | 🇩🇰 | Danish | 🟧 | [jmayntzhusen](https://github.com/jmayntzhusen) |
-| `ar` | | Arabic | 🟧 | [pop-eax](https://github.com/pop-eax) |
-| `ca` | | Catalan | 🟧 | [arthurnoerve](https://github.com/arthurnoerve) |
-| `lt` | 🇱🇹 | Lithuanian | 🟧 | [arthurnoerve](https://github.com/arthurnoerve) |
-| `nl` | 🇳🇱 | Dutch | 🟧 | [gkdp](https://github.com/gkdp) |
-| `pl` | 🇵🇱 | Polish | 🟩 | [filipolszewski](https://github.com/filipolszewski), [MrBoombastic](https://github.com/mrboombastic) |
-| `eo` | | Esperanto | 🟧 | [ebanDev](https://github.com/ebanDev) |
-| `ga` | | Galego | 🟩 | [r1p](https://github.com/r1p) |
-| `uk` | 🇺🇦 | Ukrainian | 🟩 | [Rakanskiy](https://github.com/rakanskiy), [krupenik](https://github.com/krupenik), [vadimkin](https://github.com/vadimkin) |
-| `ja` | 🇯🇵 | Japanese | 🟩 | [emperorjoker](https://github.com/emperorjoker) |
-| `fa` | | Farsi | 🟩 | [ItsAminZamani](https://github.com/ItsAminZamani) |
+Localization is limited to 🇺🇸 English (US), 🇰🇷 Korean, 🇯🇵 Japanese on this repo, and managed directly by somni. You can consider contribute translations in your language on original Attila repo.
 
 ## 🔠 Setup custom google fonts
+
+> To be changed!
 
 1. Go to [fonts.google.com](https://fonts.google.com/) and choose a font.
 2. Choose __Embed__ and copy the `<link>` code.
@@ -93,4 +66,6 @@ grunt compress
 ````
 ## ⚖️ Copyright & License
 
-Copyright (C) 2015-2022 Peter Amende - Released under the [MIT License](https://github.com/zutrinken/attila/blob/master/LICENSE).
+Copyright (C) 2015-2022 Peter Amende  
+Copyright (C) 2022 somni  
+Released under the [MIT License](https://github.com/zutrinken/attila/blob/master/LICENSE).
