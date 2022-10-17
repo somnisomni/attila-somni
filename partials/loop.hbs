@@ -9,10 +9,13 @@
 		<div class="box post-box">
 			<h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
 			<span class="post-meta">
+				{{#unless @custom.hide_author_in_homepage}}
 				{{t "By"}}
 				{{authors separator=", "}}
 				{{#primary_tag}}{{t "in"}} <a class="post-meta-tag" href="{{url}}">{{name}}</a>{{/primary_tag}}
 				&bull;
+				{{/unless}}
+
 				{{t "On"}}
 				<time datetime="{{date format=@custom.date_format}}">{{date format=@custom.date_format}}</time>
 			</span>
