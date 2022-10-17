@@ -25,6 +25,7 @@ To be added.
     - Primary (UI): [Pretendard](https://github.com/orioncactus/pretendard)
     - Secondary (Body): [Iropke Batang (이롭게바탕체)](https://font.iropke.com/batang/)
   * Korean translations [`dadc395`](https://github.com/somnisomni/attila-somni/commit/dadc3955a11d4ddcbb7b444353d14eafcda31530)
+  * Make more texts translatable
   * Configurables
     - Date format [`1f73370`](https://github.com/somnisomni/attila-somni/commit/1f7337046304cec9f32c3afe51a80e4c4ba3af7e)
     - Hide author in homepage [`d2585e7`](https://github.com/somnisomni/attila-somni/commit/d2585e79ef27e4f3bf916c1421632493fc5c7213)
