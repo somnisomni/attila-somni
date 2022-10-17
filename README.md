@@ -20,12 +20,18 @@ To be added.
   * Code highlight including line numbers
   * Comments and Disqus (Theme option)
   * Ghost accent color
-### Customized additions
-  * To be added.
+### Custom changes
+  * Change default fontsets [`dd1c287`](https://github.com/somnisomni/attila-somni/commit/dd1c287bc841b29b328a6af4732af8ad31bf9960)
+    - Primary (UI): [Pretendard](https://github.com/orioncactus/pretendard)
+    - Secondary (Body): [Iropke Batang (이롭게바탕체)](https://font.iropke.com/batang/)
+  * Korean translations [`dadc395`](https://github.com/somnisomni/attila-somni/commit/dadc3955a11d4ddcbb7b444353d14eafcda31530)
+  * Configurables
+    - Date format [`1f73370`](https://github.com/somnisomni/attila-somni/commit/1f7337046304cec9f32c3afe51a80e4c4ba3af7e)
+    - Hide author in homepage [`d2585e7`](https://github.com/somnisomni/attila-somni/commit/d2585e79ef27e4f3bf916c1421632493fc5c7213)
 
 ## 🌍 Localization
 
-Localization is limited to 🇺🇸 English (US), 🇰🇷 Korean, 🇯🇵 Japanese on this repo, and managed directly by somni. You can consider contribute translations in your language on original Attila repo.
+Only 🇺🇸 English (US), 🇰🇷 Korean, 🇯🇵 Japanese localizations managed on this repo, directly by somni. You can consider contribute translations in your language on original Attila repo.
 
 ## 🔠 Setup custom google fonts
 
