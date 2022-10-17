@@ -6,7 +6,7 @@
     "Menu": "메뉴",
     "Newer Posts": "최신 글",
     "Older Posts": "이전 글",
-    "Page {page} of {pages}": "{page}번째 페이지",
+    "Page {page} of {pages}": "총 {pages}페이지 중 {page}번째 페이지",
     "Posts": "글",
     "Published with": "Published with",
     "Show Comments": "댓글 보기",
