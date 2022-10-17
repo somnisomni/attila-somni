@@ -18,6 +18,10 @@ $inner: calc(64rem + 8vw);
 	--font-secondary: "Iropke Batang", serif;
 }
 
+::selection {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
 html {
 	font-size: 62.5%;
 	overflow-x: hidden;
