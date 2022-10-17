@@ -82,14 +82,24 @@
         ],
         "default": "System"
       },
+      "darkmode_accent_color": {
+        "type": "color",
+        "default": "#ff6633"
+      },
       "disqus_shortname": {
         "type": "text",
         "default": "",
         "group": "post"
       },
-      "darkmode_accent_color": {
-        "type": "color",
-        "default": "#ff6633"
+      "date_format": {
+        "type": "select",
+        "options": [
+          "YYYY/MM/DD",
+          "YYYY년 MM월 DD일",
+          "DD-MM-YYYY"
+        ],
+        "default": "YYYY/MM/DD",
+        "group": "post"
       }
     }
   },
