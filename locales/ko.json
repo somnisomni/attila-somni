@@ -38,5 +38,9 @@
     "Next post": "다음 글",
     "Previous post": "이전 글",
     "Sign in": "로그인",
-    "Sign up": "가입"
+    "Sign up": "가입",
+
+    "System theme": "시스템 테마",
+    "Dark theme": "어두운 테마",
+    "Light theme": "밝은 테마"
 }

@@ -11,7 +11,7 @@
     "Published with": "掲載",
     "Show Comments": "コメントを表示する",
     "Subscribe": "購読",
-    "Theme": "主題",
+    "Theme": "ブログテーマ",
     "Website": "ウェブサイト",
     "Your email address": "あなたのメールアドレス",
     "By": "By",
@@ -38,5 +38,9 @@
     "Next post": "次の投稿",
     "Previous post": "前の投稿",
     "Sign in": "ログイン",
-    "Sign up": "登録する"
+    "Sign up": "登録する",
+
+    "System theme": "システムテーマ",
+    "Dark theme": "ダークテーマ",
+    "Light theme": "ライトテーマ"
 }
