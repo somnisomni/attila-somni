@@ -1,8 +1,7 @@
 {
-  "name": "attila",
-  "description": "Ghost Theme",
-  "demo": "https://attila.peteramende.de",
-  "version": "3.6.1",
+  "name": "attila-somni",
+  "description": "Ghost Theme based on Attila",
+  "version": "0.1.0-dev",
   "engines": {
     "ghost": ">=5.0.0"
   },
@@ -16,6 +15,13 @@
     "email": "hey@peteramende.de",
     "url": "https://peteramende.de"
   },
+  "contributors": [
+    {
+      "name": "somni",
+      "email": "me@somni.one",
+      "url": "https://somni.one"
+    }
+  ],
   "gpm": {
     "type": "theme",
     "categories": [
@@ -30,7 +36,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/zutrinken/attila.git"
+    "url": "https://github.com/somnisomni/attila-somni"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
@@ -73,9 +79,9 @@
         "default": "System"
       },
       "disqus_shortname": {
-          "type": "text",
-          "default": "",
-          "group": "post"
+        "type": "text",
+        "default": "",
+        "group": "post"
       },
       "darkmode_accent_color": {
         "type": "color",
