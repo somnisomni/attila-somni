@@ -22,7 +22,7 @@ module.exports = function(grunt) {
       dev: {
         files: [{
           dest: 'assets/font/',
-          src: '*',
+          src: ['*', '**/*'],
           cwd: 'src/font/',
           expand: true
         }]
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
       dist: {
         files: [{
           dest: 'assets/font/',
-          src: '*',
+          src: ['*', '**/*'],
           cwd: 'src/font/',
           expand: true
         }]
@@ -39,7 +39,8 @@ module.exports = function(grunt) {
     clean: {
       dev: ['dev'],
       dist: ['dist'],
-      all: ['dev', 'dist']
+      assets: ['assets'],
+      all: ['dev', 'dist', 'assets']
     },
     sass: {
       dev: {
@@ -124,6 +125,11 @@ module.exports = function(grunt) {
     'postcss:dist',
     'copy:dist',
     'uglify'
+  ]);
+  grunt.registerTask('dist', [
+    'clean:assets',
+    'build',
+    'compress'
   ]);
   grunt.registerTask('default', [
     'sass:dev',
