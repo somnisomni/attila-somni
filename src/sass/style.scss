@@ -1713,6 +1713,7 @@ textarea {
 		margin: 0;
 		z-index: 6;
 		object-fit: cover;
+		filter: brightness(0.75);
 	}
 
 	&:after {
