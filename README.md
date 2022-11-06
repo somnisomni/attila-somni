@@ -23,9 +23,10 @@ To be added.
   * Comments and Disqus (Theme option)
   * Ghost accent color
 ### Custom changes
-  * Change default fontsets
+  * Change default font families
     - Primary (UI): [Pretendard](https://github.com/orioncactus/pretendard)
     - Secondary (Body): [Iropke Batang (이롭게 바탕체)](https://font.iropke.com/batang/)
+    - You can still redefine default font families by code injection!
   * Korean translations
   * Make more texts translatable
   * More theme options
@@ -60,19 +61,19 @@ Only 🇺🇸 English (US), 🇰🇷 Korean, 🇯🇵 Japanese localizations man
 
 Install [Grunt](https://gruntjs.com/getting-started/):
 ````bash
-npm install -g grunt-cli
+$ npm install -g grunt-cli
 ````
-Install Grunt dependencies:
+Install project dependencies:
 ````bash
-npm install
+$ yarn
 ````
 Build Grunt project:
 ````bash
-grunt build
+$ grunt build
 ````
-The compress Grunt task packages the theme files into `dist/<theme-name>.zip`, which you can then upload to your site.
+This will clean, build, and compress at once. Compressed theme will be available at `dist/<theme-name>.zip`, which you can then upload to your site.
 ````bash
-grunt compress
+$ yarn dist
 ````
 ## ⚖️ Copyright & License
 
