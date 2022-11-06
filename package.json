@@ -1,7 +1,7 @@
 {
   "name": "attila-somni",
   "description": "Ghost Theme based on Attila",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "engines": {
     "ghost": ">=5.0.0"
   },
