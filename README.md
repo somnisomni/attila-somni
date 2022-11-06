@@ -31,6 +31,7 @@ To be added.
   * More theme options
     - Date format
     - Hide author in front page post loops
+    - Custom footer text
 
 ## 🌍 Localization
 

@@ -1501,10 +1501,30 @@ textarea {
 
 .nav-footer .nav-wrapper {
 	display: flex;
+	flex-direction: column;
 	padding: 0 4rem;
+
+	@media only screen and (max-width: $breakpoint-medium) {
+		text-align: center;
+	}
+}
+
+.nav-footer .nav-wrapper .nav-main {
+	display: flex;
+
 	@media only screen and (max-width: $breakpoint-medium) {
 		flex-direction: column;
-		text-align: center;
+	}
+}
+
+.nav-footer .nav-wrapper .nav-custom-text {
+	margin-top: 1.5rem;
+	font-size: 1.6em;
+	color: var(--color-content-secondary);
+	opacity: 0.8;
+
+	@media only screen and (max-width: $breakpoint-medium) {
+		margin-top: 3rem;
 	}
 }
 
@@ -1574,7 +1594,7 @@ textarea {
 .nav-credits {
 	flex-shrink: 0;
 	display: block;
-	margin-left: auto;
+	margin-left: 2rem;
 	font-size: 1.6em;
 	line-height: 2rem;
 	color: var(--color-content-secondary);

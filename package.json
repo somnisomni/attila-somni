@@ -86,6 +86,10 @@
         "type": "color",
         "default": "#ff6633"
       },
+      "footer_custom_text": {
+        "type": "text",
+        "default": ""
+      },
       "hide_author_in_homepage": {
         "type": "boolean",
         "default": false,
