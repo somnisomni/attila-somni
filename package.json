@@ -43,6 +43,7 @@
     "dist": "grunt dist"
   },
   "devDependencies": {
+    "@lodder/grunt-postcss": "^3.1.1",
     "autoprefixer": "^10.4.2",
     "grunt": "^1.5.3",
     "grunt-contrib-clean": "^2.0.0",
@@ -50,9 +51,9 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-uglify": "^5.0.1",
     "grunt-contrib-watch": "^1.1.0",
-    "grunt-postcss": "^0.9.0",
     "grunt-sass": "^3.1.0",
     "load-grunt-tasks": "^5.1.0",
+    "postcss": "^8.4.18",
     "sass": "^1.56.0"
   },
   "config": {
@@ -114,5 +115,6 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "dependencies": {}
 }
