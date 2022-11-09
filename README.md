@@ -2,7 +2,7 @@
 
 A content focused responsive theme for [Ghost](https://github.com/tryghost/ghost/). Customized for somni's own blog, [솜니.로그](https://log.somni.one).
 
-Original repository : [zutrinken/attila](https://github.com/zutrinken/attila)
+Original repository: [zutrinken/attila](https://github.com/zutrinken/attila)
 
 ## ♥️ Support
 
@@ -33,6 +33,8 @@ To be added.
     - Date format
     - Hide author in front page post loops
     - Custom footer text
+  * Custom theme pages
+    - Tag list page (`/tags`)
 
 ## 🌍 Localization
 
@@ -67,13 +69,13 @@ Install project dependencies:
 ````bash
 $ yarn
 ````
-Build Grunt project:
-````bash
-$ grunt build
-````
 This will clean, build, and compress at once. Compressed theme will be available at `dist/<theme-name>.zip`, which you can then upload to your site.
 ````bash
 $ yarn dist
+````
+Alternatively, you can just build Grunt project by this command:
+````bash
+$ grunt build
 ````
 ## ⚖️ Copyright & License
 
