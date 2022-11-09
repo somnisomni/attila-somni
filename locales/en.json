@@ -28,7 +28,6 @@
     "Archive": "Archive",
     "Author": "Author",
     "Topic": "Topic",
-    "Topics": "Topics",
     "Share": "Share",
     "Search": "Search",
     "Search all posts": "Search all posts",
@@ -42,5 +41,10 @@
 
     "System theme": "System theme",
     "Dark theme": "Dark theme",
-    "Light theme": "Light theme"
+    "Light theme": "Light theme",
+    "Topics": "Topics",
+    "No topics": "No Topics",
+    "% topic total": "% topic total",
+    "% topics total": "% topics total",
+    "No topics on this site!": "No topics on this site!"
 }

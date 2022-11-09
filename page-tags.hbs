@@ -1,0 +1,36 @@
+{{!< default}}
+
+{{#post}}
+{{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
+
+<header class="blog-header">
+	<div class="inner">
+		<div class="archive archive-tag box archive-box">
+			<h2 class="archive-title">{{t "Topics"}}</h2>
+      <span class="archive-description">{{plural pagination.total empty=(t "No topics") singular=(t "% topics total") plural=(t "% topics total")}}</span>
+		</div>
+	</div>
+</header>
+
+<main class="content" role="main">
+	<article class="{{post_class}}">
+		<div class="inner">
+
+			<section class="post-content">
+        {{#if tags}}
+          {{#foreach tags}}
+            <a href="{{ url }}">
+              <span class="tag-title">{{ name }} <small>({{ count.posts }})</small></span>
+            </a>
+          {{/foreach}}
+        {{else}}
+        <p>{{t "No topics on this site!"}}</p>
+        {{/if}}
+			</section>
+
+		</div>
+	</article>
+</main>
+
+{{/get}}
+{{/post}}

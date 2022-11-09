@@ -28,7 +28,6 @@
     "Archive": "아카이브",
     "Author": "Author",
     "Topic": "태그",
-    "Topics": "태그",
     "Share": "공유",
     "Search": "검색",
     "Search all posts": "모든 글 검색",
@@ -42,5 +41,10 @@
 
     "System theme": "시스템 테마",
     "Dark theme": "어두운 테마",
-    "Light theme": "밝은 테마"
+    "Light theme": "밝은 테마",
+    "Topics": "태그 목록",
+    "No topics": "태그 없음",
+    "% topic total": "총 %개",
+    "% topics total": "총 %개",
+    "No topics on this site!": "이 사이트에는 태그가 없습니다!"
 }
