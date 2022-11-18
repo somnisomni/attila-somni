@@ -91,6 +91,10 @@
         "type": "text",
         "default": ""
       },
+      "mastodon_url": {
+        "type": "text",
+        "default": ""
+      },
       "hide_author_in_homepage": {
         "type": "boolean",
         "default": false,

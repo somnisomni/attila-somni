@@ -7,6 +7,15 @@
     </a>
   </li>
   {{/if}}
+
+  {{#if @custom.mastodon_url}}
+  <li class="nav-mastodon">
+    <a aria-label="Mastodon" href="{{@custom.mastodon_url}}" title="{{@custom.mastodon_url}}" target="_blank">
+      <i class="icon icon-mastodon" aria-hidden="true"></i>
+    </a>
+  </li>
+  {{/if}}
+
   {{#if @site.facebook}}
   <li class="nav-facebook">
     <a aria-label="Facebook" href="{{facebook_url}}" title="{{@site.facebook}}" target="_blank">
@@ -15,6 +24,7 @@
     </a>
   </li>
   {{/if}}
+
   <li class="nav-search">
     <a title="{{t "Search"}}" data-ghost-search>
       <i class="icon icon-search" aria-hidden="true"></i>
