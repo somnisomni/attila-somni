@@ -27,10 +27,13 @@ To be added.
     - Primary (UI): [Pretendard](https://github.com/orioncactus/pretendard)
     - Secondary (Body): [Iropke Batang (이롭게 바탕체)](https://font.iropke.com/batang/)
     - You can still redefine default font families by code injection!
-  * Add redefinable `monospace` font families
+  * Add redefinable `monospace` font family
     - Default is [D2Coding](https://github.com/naver/d2codingfont)
   * Korean translations
   * Make more texts translatable
+  * Can add [Mastodon](https://joinmastodon.org/) link in navigation meta
+    - Mastodon URL can be set in theme options
+    - Backlinked using `rel="me"` by default (for verification in Mastodon profile meta)
   * More theme options
     - Date format
     - Hide author in front page post loops
