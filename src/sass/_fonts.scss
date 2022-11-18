@@ -10,7 +10,7 @@
        url("../font/IropkeBatang/IropkeBatangM.woff") format("woff");
 }
 
-/* Korea UI font: Pretendard (https://github.com/orioncactus/pretendard) - SIL OFL v1.1 */
+/* Korean UI font: Pretendard (https://github.com/orioncactus/pretendard) - SIL OFL v1.1 */
 @font-face {
   font-family: "PretendardSubset";
   font-style: normal;
@@ -39,4 +39,14 @@
   src: local("Pretendard"),
        url("../font/Pretendard-Subset/Pretendard-SemiBold.subset.woff2") format("woff2"),
        url("../font/Pretendard-Subset/Pretendard-SemiBold.subset.woff") format("woff");
+}
+
+/* Korean `<code>` font: D2Coding (https://github.com/naver/d2codingfont) - SIL OFL v1.1 */
+@font-face {
+  font-family: "_D2Coding";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: local("D2Coding"),
+       url("../font/D2Coding/D2Coding.woff") format("woff");
 }

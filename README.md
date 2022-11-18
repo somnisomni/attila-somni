@@ -27,6 +27,8 @@ To be added.
     - Primary (UI): [Pretendard](https://github.com/orioncactus/pretendard)
     - Secondary (Body): [Iropke Batang (이롭게 바탕체)](https://font.iropke.com/batang/)
     - You can still redefine default font families by code injection!
+  * Add redefinable `monospace` font families
+    - Default is [D2Coding](https://github.com/naver/d2codingfont)
   * Korean translations
   * Make more texts translatable
   * More theme options
@@ -55,6 +57,7 @@ Only 🇺🇸 English (US), 🇰🇷 Korean, 🇯🇵 Japanese localizations man
   :root {
     --font-primary: 'Mukta', sans-serif;
     --font-secondary: 'Crimson Text', serif;
+    --font-monospace: 'Lucida Console', monospace;
   }
 </style>
 ````

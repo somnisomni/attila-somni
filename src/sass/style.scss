@@ -16,6 +16,7 @@ $inner: calc(64rem + 8vw);
 :root {
 	--font-primary: "PretendardSubset", sans-serif;
 	--font-secondary: "Iropke Batang", serif;
+	--font-monospace: "_D2Coding", monospace, sans-serif;
 }
 
 ::selection {
@@ -259,7 +260,7 @@ textarea {
 		position: relative;
 		margin: 0 1px;
 		padding: 4px 8px;
-		font-family: monospace, sans-serif;
+		font-family: var(--font-monospace);
 		font-size: 0.75em;
 		background: var(--color-background-secondary);
 		border: 1px solid var(--color-background-contrast);
@@ -272,7 +273,7 @@ textarea {
 		margin: 0 0 4rem;
 		padding: 1em;
 		overflow: hidden;
-		font-family: monospace, sans-serif;
+		font-family: var(--font-monospace);
 		white-space: pre;
 		background: var(--color-background-secondary);
 		border: 1px solid var(--color-background-contrast);
