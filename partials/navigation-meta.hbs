@@ -1,7 +1,7 @@
 <ul class="nav-meta">
   {{#if @site.twitter}}
   <li class="nav-twitter">
-    <a aria-label="Twitter" href="{{twitter_url}}" title="{{@site.twitter}}" target="_blank">
+    <a aria-label="Twitter" rel="me" href="{{twitter_url}}" title="{{@site.twitter}}" target="_blank">
       <i class="icon icon-twitter" aria-hidden="true"></i>
       <span>{{@site.twitter}}</span>
     </a>
@@ -10,7 +10,7 @@
 
   {{#if @custom.mastodon_url}}
   <li class="nav-mastodon">
-    <a aria-label="Mastodon" href="{{@custom.mastodon_url}}" title="{{@custom.mastodon_url}}" target="_blank">
+    <a aria-label="Mastodon" rel="me" href="{{@custom.mastodon_url}}" title="{{@custom.mastodon_url}}" target="_blank">
       <i class="icon icon-mastodon" aria-hidden="true"></i>
     </a>
   </li>
@@ -18,7 +18,7 @@
 
   {{#if @site.facebook}}
   <li class="nav-facebook">
-    <a aria-label="Facebook" href="{{facebook_url}}" title="{{@site.facebook}}" target="_blank">
+    <a aria-label="Facebook" rel="me" href="{{facebook_url}}" title="{{@site.facebook}}" target="_blank">
       <i class="icon icon-facebook" aria-hidden="true"></i>
       <span>{{@site.facebook}}</span>
     </a>
