@@ -27,9 +27,14 @@ SOFTWARE.
 
 */
 
+/* Theme specific SCSS variable */
+$hljs-background: #011627;
+$hljs-foreground: #d6deeb;
+
+/* Original styles */
 .hljs {
-background: #011627;
-color: #d6deeb;
+background: $hljs-background;
+color: $hljs-foreground;
 }
 
 /* General Purpose */

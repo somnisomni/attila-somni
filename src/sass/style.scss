@@ -275,7 +275,8 @@ textarea {
 		overflow: hidden;
 		font-family: var(--font-monospace);
 		white-space: pre;
-		background: var(--color-background-secondary);
+		// background: var(--color-background-secondary);
+		background: if(global-variable-exists(hljs-background), $hljs-background, var(--color-background-secondary));
 		border: 1px solid var(--color-background-contrast);
 		box-sizing: border-box;
 	}
