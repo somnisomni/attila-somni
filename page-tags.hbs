@@ -19,11 +19,7 @@
 			<section class="post-content tags">
         {{#if tags}}
           {{#foreach tags}}
-						{{#if accent_color}}
-            <a class="tag-item" href="{{ url }}" style="--tag-accent-color: {{ accent_color }}">
-						{{else}}
-            <a class="tag-item" href="{{ url }}" style="--tag-accent-color: var(--ghost-accent-color)">
-						{{/if}}
+            <a class="tag-item" href="{{ url }}" style="--tag-accent-color: {{#if accent_color}} {{ accent_color }} {{else}} var(--ghost-accent-color) {{/if}}">
               <span class="tag-title">{{ name }} <small>({{ count.posts }})</small></span>
             </a>
           {{/foreach}}
