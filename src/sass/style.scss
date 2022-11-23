@@ -1762,6 +1762,10 @@ textarea {
 	margin-bottom: 2rem;
 	font-size: 2em;
 	line-height: 1em;
+	
+	@media only screen and (max-width: $breakpoint-small) {
+		font-size: 1.75em;
+	}
 
 	.post-type {
 		color: var(--ghost-accent-color);
@@ -1824,6 +1828,10 @@ textarea {
 	margin: 0 0 4rem;
 	font-size: 6em;
 	line-height: 1.25em;
+	
+	@media only screen and (max-width: $breakpoint-small) {
+		font-size: 4.5em;
+	}
 }
 
 .has-cover .post-title {
