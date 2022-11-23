@@ -16,10 +16,14 @@
 	<article class="{{post_class}}">
 		<div class="inner">
 
-			<section class="post-content">
+			<section class="post-content tags">
         {{#if tags}}
           {{#foreach tags}}
-            <a href="{{ url }}">
+						{{#if accent_color}}
+            <a class="tag-item" href="{{ url }}" style="--tag-accent-color: {{ accent_color }}">
+						{{else}}
+            <a class="tag-item" href="{{ url }}" style="--tag-accent-color: var(--ghost-accent-color)">
+						{{/if}}
               <span class="tag-title">{{ name }} <small>({{ count.posts }})</small></span>
             </a>
           {{/foreach}}
