@@ -60,7 +60,7 @@
 	{{ghost_head}}
 </head>
 
-<body class="{{body_class}}">
+<body class="{{body_class}} {{#unless @custom.use_highlightjs_background_color_for_code_blocks}} ignore-hljs-bg-color {{/unless}}">
 
 	<div class="nav-header">
 		<nav class="nav-wrapper" aria-label="{{t "Main"}}">

@@ -114,6 +114,11 @@
         ],
         "default": "YYYY/MM/DD",
         "group": "post"
+      },
+      "use_highlightjs_background_color_for_code_blocks": {
+        "type": "boolean",
+        "default": true,
+        "group": "post"
       }
     }
   },

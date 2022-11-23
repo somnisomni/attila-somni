@@ -279,6 +279,10 @@ textarea {
 		background: if(global-variable-exists(hljs-background), $hljs-background, var(--color-background-secondary));
 		border: 1px solid var(--color-background-contrast);
 		box-sizing: border-box;
+
+		body.ignore-hljs-bg-color & {
+			background: var(--color-background-secondary);
+		}
 	}
 
 	pre .lines {
