@@ -138,3 +138,12 @@
   $ael(window, "resize", parallax);
   $ael(window, "orientationchange", parallax);
 })();
+
+/* === Functions callable from outside === */
+function launchDisqus(disqusShortname) {
+  const disqusScript = document.createElement("script");
+  disqusScript.src = `//${disqusShortname}.disqus.com/embed.js`;
+  disqusScript.async = true;
+  disqusScript.defer = true;
+  document.body.append(disqusScript);
+}
