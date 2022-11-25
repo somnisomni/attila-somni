@@ -4,18 +4,27 @@
   const html = document.documentElement;
   const $q = (query = "") => document.querySelector(query);
   const $qa = (query = "") => document.querySelectorAll(query);
-  const $ael = (query, event, handler, queryAll = false) => {
-    if(queryAll) {
-      const qa = $qa(query);
-      if(qa && qa.length > 0) {
-        qa.forEach((e) => {
-          e.addEventListener(event, handler);
-        });
-      }
-    } else {
-      const q = $q(query);
-      if(q) {
-        q.addEventListener(event, handler);
+  const $ael = (queryOrEventTarget, event, handler, queryAll = false) => {
+    if(queryOrEventTarget) {
+      if(typeof queryOrEventTarget === "string") {
+        const query = queryOrEventTarget;
+
+        if(queryAll) {
+          const qa = $qa(query);
+          if(qa && qa.length > 0) {
+            qa.forEach((e) => {
+              e.addEventListener(event, handler);
+            });
+          }
+        } else {
+          const q = $q(query);
+          if(q) {
+            q.addEventListener(event, handler);
+          }
+        }
+      } else if(queryOrEventTarget instanceof EventTarget) {
+        const eventTarget = queryOrEventTarget;
+        eventTarget.addEventListener(event, handler);
       }
     }
   }
@@ -28,16 +37,16 @@
     html.classList.toggle("menu-active");
   }
 
+  function deactivateMenu() {
+    html.classList.remove("menu-active");
+  }
+
   $ael("#menu", "click", menu);
   $ael(".nav-menu", "click", menu);
   $ael(".nav-close", "click", menu);
 
-  window.addEventListener("resize", () => {
-    html.classList.remove("menu-active");
-  });
-  window.addEventListener("orientationchange", () => {
-    html.classList.remove("menu-active");
-  });
+  $ael(window, "resize", deactivateMenu);
+  $ael(window, "orientationchange", deactivateMenu);
 
   /* ==========================================================================
     Gallery
