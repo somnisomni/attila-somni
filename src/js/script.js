@@ -32,7 +32,6 @@
   /* ==========================================================================
     Menu
     ========================================================================== */
-
   function menu() {
     html.classList.toggle("menu-active");
   }
@@ -51,7 +50,6 @@
   /* ==========================================================================
     Gallery
     ========================================================================== */
-
   function gallery() {
     $qa(".kg-gallery-image img").forEach(function(image) {
       const container = image.closest(".kg-gallery-image");
@@ -66,7 +64,6 @@
   /* ==========================================================================
     Theme
     ========================================================================== */
-
   function theme() {
     const toggle = $q(".js-theme");
     const toggleText = toggle.querySelector(".theme-text");
@@ -115,42 +112,29 @@
     });
   }
   theme();
-})();
 
+  /* ==========================================================================
+    Parallax cover
+    ========================================================================== */
+  const cover = $q(".cover");
+  let coverPosition = 0;
 
-jQuery(function($) {
-  var html = $('html');
-  var viewport = $(window);
+  function parallax() {
+    if(cover && cover instanceof HTMLElement) {
+      const windowPosition = window.scrollY;
+      coverPosition = windowPosition > 0 ? Math.floor(windowPosition * 0.25) : 0;
+      cover.style.transform = `translate3d(0, ${coverPosition}px, 0)`;
 
-/* ==========================================================================
-   Parallax cover
-   ========================================================================== */
-
-  var cover = $('.cover');
-  var coverPosition = 0;
-
-  function prlx() {
-    if (cover.length >= 1) {
-      var windowPosition = viewport.scrollTop();
-      (windowPosition > 0) ? coverPosition = Math.floor(windowPosition * 0.25): coverPosition = 0;
-      cover.css({
-        '-webkit-transform': 'translate3d(0, ' + coverPosition + 'px, 0)',
-        'transform': 'translate3d(0, ' + coverPosition + 'px, 0)'
-      });
-      (viewport.scrollTop() < cover.height()) ? html.addClass('cover-active'): html.removeClass('cover-active');
+      if(window.scrollY < cover.clientHeight) {
+        html.classList.add("cover-active");
+      } else {
+        html.classList.remove("cover-active");
+      }
     }
   }
-  prlx();
+  parallax();
 
-  viewport.on({
-    'scroll': function() {
-      prlx();
-    },
-    'resize': function() {
-      prlx();
-    },
-    'orientationchange': function() {
-      prlx();
-    }
-  });
-});
+  $ael(window, "scroll", parallax);
+  $ael(window, "resize", parallax);
+  $ael(window, "orientationchange", parallax);
+})();
