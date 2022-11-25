@@ -89,11 +89,21 @@
 		<div class="nav-footer">
 			<nav class="nav-wrapper" aria-label="{{t "Footer"}}">
 				<div class="nav-main">
-					<span class="nav-copy">{{@site.title}} &copy; {{date format='YYYY'}}  <a class="nav-rss" title="RSS" href="{{@site.url}}/rss/" target="_blank"><i class="icon icon-rss" aria-hidden="true"></i></a></span>
-					{{#if @site.secondary_navigation}}
-					{{navigation type="secondary"}}
-					{{/if}}
-					<span class="nav-credits">{{t "Published with"}} <a href="https://ghost.org" target="_blank">Ghost</a> &bull; {{t "Theme" }} <a href="https://github.com/somnisomni/attila-somni" target="_blank">Attila-somni</a> &bull; <a class="menu-item js-theme" href="#" data-system="{{t 'System theme'}}" data-dark="{{t 'Dark theme'}}" data-light="{{t 'Light theme'}}"><span class="theme-icon"></span><span class="theme-text">{{t "System theme"}}</span> </a> </span>
+					<div class="nav-secondary-wrapper">
+						<span class="nav-copy">{{@site.title}} &copy; {{date format='YYYY'}}  <a class="nav-rss" title="RSS" href="{{@site.url}}/rss/" target="_blank"><i class="icon icon-rss" aria-hidden="true"></i></a></span>
+						{{#if @site.secondary_navigation}}
+						{{navigation type="secondary"}}
+						{{/if}}
+					</div>
+
+					<span class="nav-credits">
+						{{t "Published with"}} <a href="https://ghost.org" target="_blank">Ghost</a>
+						&bull; {{t "Theme" }} <a href="https://github.com/somnisomni/attila-somni" target="_blank">Attila-somni</a>
+						&bull; <a class="menu-item js-theme" href="#" data-system="{{t 'System theme'}}" data-dark="{{t 'Dark theme'}}" data-light="{{t 'Light theme'}}">
+							<span class="theme-icon"></span>
+							<span class="theme-text">{{t "System theme"}}</span>
+						</a>
+					</span>
 				</div>
 
 				{{#if @custom.footer_custom_text}}

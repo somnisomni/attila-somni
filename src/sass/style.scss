@@ -1517,9 +1517,18 @@ textarea {
 
 .nav-footer .nav-wrapper .nav-main {
 	display: flex;
+	flex-wrap: wrap;
+
+	& > * {
+		margin: 1rem 0;
+	}
 
 	@media only screen and (max-width: $breakpoint-medium) {
 		flex-direction: column;
+
+		& > * {
+			margin: 0;
+		}
 	}
 }
 
@@ -1537,17 +1546,18 @@ textarea {
 .nav-footer ul {
 	position: relative;
 	display: flex;
-	width: 100%;
+	// width: 100%;
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	@media only screen and (max-width: $breakpoint-medium) {
-		margin-bottom: 3rem;
-		justify-content: center;
-	}
 
 	&:last-child {
 		justify-content: flex-end;
+	}
+
+	@media only screen and (max-width: $breakpoint-medium) {
+		margin-bottom: 3rem;
+		justify-content: center !important;
 	}
 }
 
@@ -1574,6 +1584,15 @@ textarea {
 
 	&:last-child {
 		margin-right: 0;
+	}
+}
+
+.nav-secondary-wrapper {
+	display: flex;
+	flex-grow: 1;
+
+	@media only screen and (max-width: $breakpoint-medium) {
+		flex-direction: column;
 	}
 }
 
