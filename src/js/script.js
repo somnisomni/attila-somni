@@ -1,42 +1,117 @@
-jQuery(function($) {
+(() => {
+  "use strict";
 
-  var html = $('html');
-  var viewport = $(window);
+  const html = document.documentElement;
+  const $q = (query = "") => document.querySelector(query);
+  const $qa = (query = "") => document.querySelectorAll(query);
+  const $ael = (query, event, handler, queryAll = false) => {
+    if(queryAll) {
+      const qa = $qa(query);
+      if(qa && qa.length > 0) {
+        qa.forEach((e) => {
+          e.addEventListener(event, handler);
+        });
+      }
+    } else {
+      const q = $q(query);
+      if(q) {
+        q.addEventListener(event, handler);
+      }
+    }
+  }
 
-/* ==========================================================================
-   Menu
-   ========================================================================== */
+  /* ==========================================================================
+    Menu
+    ========================================================================== */
 
   function menu() {
-    html.toggleClass('menu-active');
-  };
+    html.classList.toggle("menu-active");
+  }
 
-  $('#menu').on({
-    'click': function() {
-      menu();
-    }
+  $ael("#menu", "click", menu);
+  $ael(".nav-menu", "click", menu);
+  $ael(".nav-close", "click", menu);
+
+  window.addEventListener("resize", () => {
+    html.classList.remove("menu-active");
+  });
+  window.addEventListener("orientationchange", () => {
+    html.classList.remove("menu-active");
   });
 
-  $('.nav-menu').on({
-    'click': function() {
-      menu();
-    }
-  });
+  /* ==========================================================================
+    Gallery
+    ========================================================================== */
 
-  $('.nav-close').on({
-    'click': function() {
-      menu();
-    }
-  });
+  function gallery() {
+    $qa(".kg-gallery-image img").forEach(function(image) {
+      const container = image.closest(".kg-gallery-image");
+      const width = image.attributes.width.value;
+      const height = image.attributes.height.value;
+      const ratio = width / height;
+      container.style.flex = `${ratio} 1 0%`;
+    });
+  }
+  gallery();
 
-  viewport.on({
-    'resize': function() {
-      html.removeClass('menu-active');
-    },
-    'orientationchange': function() {
-      html.removeClass('menu-active');
+  /* ==========================================================================
+    Theme
+    ========================================================================== */
+
+  function theme() {
+    const toggle = $q(".js-theme");
+    const toggleText = toggle.querySelector(".theme-text");
+
+    function set(type = "system") {
+      if(type === "dark") {
+        html.classList.remove("theme-light");
+        html.classList.add("theme-dark");
+        localStorage.setItem("attila_theme", "dark");
+        toggleText.innerText = toggle.dataset.dark;
+      } else if(type === "light") {
+        html.classList.remove("theme-dark");
+        html.classList.add("theme-light");
+        localStorage.setItem("attila_theme", "light");
+        toggleText.innerText = toggle.dataset.light;
+      } else {
+        html.classList.remove("theme-dark", "theme-light");
+        localStorage.removeItem("attila_theme");
+        toggleText.innerText = toggle.dataset.system;
+      }
     }
-  });
+
+    switch(localStorage.getItem("attila_theme")) {
+      case "dark":
+        set("dark");
+        break;
+      case "light":
+        set("light");
+        break;
+      default:
+        set();
+        break;
+    }
+
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      if(!html.classList.contains("theme-dark") &&
+        !html.classList.contains("theme-light")) {
+        set("dark");
+      } else if(html.classList.contains("theme-dark")) {
+        set("light");
+      } else {
+        set();
+      }
+    });
+  }
+  theme();
+})();
+
+
+jQuery(function($) {
+  var html = $('html');
+  var viewport = $(window);
 
 /* ==========================================================================
    Parallax cover
@@ -69,75 +144,4 @@ jQuery(function($) {
       prlx();
     }
   });
-
-/* ==========================================================================
-   Gallery
-   ========================================================================== */
-
-  function gallery() {
-    'use strict';
-    var images = document.querySelectorAll('.kg-gallery-image img');
-    images.forEach(function(image) {
-      var container = image.closest('.kg-gallery-image');
-      var width = image.attributes.width.value;
-      var height = image.attributes.height.value;
-      var ratio = width / height;
-      container.style.flex = ratio + ' 1 0%';
-    });
-  }
-  gallery();
-
-
-/* ==========================================================================
-   Theme
-   ========================================================================== */
-
-  function theme() {
-    'use strict';
-    var toggle = $('.js-theme');
-    var toggleText = toggle.find('.theme-text');
-
-    function system() {
-      html.removeClass(['theme-dark', 'theme-light']);
-      localStorage.removeItem('attila_theme');
-      toggleText.text(toggle.attr('data-system'));
-    }
-
-    function dark() {
-      html.removeClass('theme-light').addClass('theme-dark');
-      localStorage.setItem('attila_theme', 'dark');
-      toggleText.text(toggle.attr('data-dark'));
-    }
-
-    function light() {
-      html.removeClass('theme-dark').addClass('theme-light');
-      localStorage.setItem('attila_theme', 'light');
-      toggleText.text(toggle.attr('data-light'));
-    }
-
-    switch (localStorage.getItem('attila_theme')) {
-      case 'dark':
-        dark();
-      break;
-      case 'light':
-        light();
-      break;
-      default:
-        system();
-      break;
-    }
-
-    toggle.on('click', function (e) {
-      e.preventDefault();
-
-      if (!html.hasClass('theme-dark') && !html.hasClass('theme-light')) {
-        dark();
-      } else if (html.hasClass('theme-dark')) {
-        light();
-      } else {
-        system();
-      }
-    });
-  }
-  theme();
 });
