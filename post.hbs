@@ -74,7 +74,10 @@
 				{{#if tags}}
 				<aside class="post-tags">
 					<span class="post-info-label">{{t "Topic"}}</span>
-					{{tags separator=" "}}
+
+					{{#foreach tags}}
+						<a href="{{ url }}" {{#if accent_color}} style="background: {{ accent_color }}" {{/if}}>{{ name }}</a>
+					{{/foreach}}
 				</aside>
 				{{/if}}
 
