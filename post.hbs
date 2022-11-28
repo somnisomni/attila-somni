@@ -190,17 +190,7 @@
 	  });
 
 		{{#if @custom.disqus_shortname}}
-			var disqus = '{{@custom.disqus_shortname}}';
-	    function launchDisqus() {
-	      $.ajax({
-	        type: "GET",
-	        url: "//" + disqus + ".disqus.com/embed.js",
-	        dataType: "script",
-	        cache: true
-	      });
-	      $(this).parent().addClass('activated');
-	    }
-			launchDisqus();
+			launchDisqus("{{@custom.disqus_shortname}}");
 		{{/if}}
   });
 </script>

@@ -1,143 +1,149 @@
-jQuery(function($) {
+(() => {
+  "use strict";
 
-  var html = $('html');
-  var viewport = $(window);
+  const html = document.documentElement;
+  const $q = (query = "") => document.querySelector(query);
+  const $qa = (query = "") => document.querySelectorAll(query);
+  const $ael = (queryOrEventTarget, event, handler, queryAll = false) => {
+    if(queryOrEventTarget) {
+      if(typeof queryOrEventTarget === "string") {
+        const query = queryOrEventTarget;
 
-/* ==========================================================================
-   Menu
-   ========================================================================== */
-
-  function menu() {
-    html.toggleClass('menu-active');
-  };
-
-  $('#menu').on({
-    'click': function() {
-      menu();
-    }
-  });
-
-  $('.nav-menu').on({
-    'click': function() {
-      menu();
-    }
-  });
-
-  $('.nav-close').on({
-    'click': function() {
-      menu();
-    }
-  });
-
-  viewport.on({
-    'resize': function() {
-      html.removeClass('menu-active');
-    },
-    'orientationchange': function() {
-      html.removeClass('menu-active');
-    }
-  });
-
-/* ==========================================================================
-   Parallax cover
-   ========================================================================== */
-
-  var cover = $('.cover');
-  var coverPosition = 0;
-
-  function prlx() {
-    if (cover.length >= 1) {
-      var windowPosition = viewport.scrollTop();
-      (windowPosition > 0) ? coverPosition = Math.floor(windowPosition * 0.25): coverPosition = 0;
-      cover.css({
-        '-webkit-transform': 'translate3d(0, ' + coverPosition + 'px, 0)',
-        'transform': 'translate3d(0, ' + coverPosition + 'px, 0)'
-      });
-      (viewport.scrollTop() < cover.height()) ? html.addClass('cover-active'): html.removeClass('cover-active');
+        if(queryAll) {
+          const qa = $qa(query);
+          if(qa && qa.length > 0) {
+            qa.forEach((e) => {
+              e.addEventListener(event, handler);
+            });
+          }
+        } else {
+          const q = $q(query);
+          if(q) {
+            q.addEventListener(event, handler);
+          }
+        }
+      } else if(queryOrEventTarget instanceof EventTarget) {
+        const eventTarget = queryOrEventTarget;
+        eventTarget.addEventListener(event, handler);
+      }
     }
   }
-  prlx();
 
-  viewport.on({
-    'scroll': function() {
-      prlx();
-    },
-    'resize': function() {
-      prlx();
-    },
-    'orientationchange': function() {
-      prlx();
-    }
-  });
+  /* ==========================================================================
+    Menu
+    ========================================================================== */
+  function menu() {
+    html.classList.toggle("menu-active");
+  }
 
-/* ==========================================================================
-   Gallery
-   ========================================================================== */
+  function deactivateMenu() {
+    html.classList.remove("menu-active");
+  }
 
+  $ael("#menu", "click", menu);
+  $ael(".nav-menu", "click", menu);
+  $ael(".nav-close", "click", menu);
+
+  $ael(window, "resize", deactivateMenu);
+  $ael(window, "orientationchange", deactivateMenu);
+
+  /* ==========================================================================
+    Gallery
+    ========================================================================== */
   function gallery() {
-    'use strict';
-    var images = document.querySelectorAll('.kg-gallery-image img');
-    images.forEach(function(image) {
-      var container = image.closest('.kg-gallery-image');
-      var width = image.attributes.width.value;
-      var height = image.attributes.height.value;
-      var ratio = width / height;
-      container.style.flex = ratio + ' 1 0%';
+    $qa(".kg-gallery-image img").forEach(function(image) {
+      const container = image.closest(".kg-gallery-image");
+      const width = image.attributes.width.value;
+      const height = image.attributes.height.value;
+      const ratio = width / height;
+      container.style.flex = `${ratio} 1 0%`;
     });
   }
   gallery();
 
-
-/* ==========================================================================
-   Theme
-   ========================================================================== */
-
+  /* ==========================================================================
+    Theme
+    ========================================================================== */
   function theme() {
-    'use strict';
-    var toggle = $('.js-theme');
-    var toggleText = toggle.find('.theme-text');
+    const toggle = $q(".js-theme");
+    const toggleText = toggle.querySelector(".theme-text");
 
-    function system() {
-      html.removeClass(['theme-dark', 'theme-light']);
-      localStorage.removeItem('attila_theme');
-      toggleText.text(toggle.attr('data-system'));
+    function set(type = "system") {
+      if(type === "dark") {
+        html.classList.remove("theme-light");
+        html.classList.add("theme-dark");
+        localStorage.setItem("attila_theme", "dark");
+        toggleText.innerText = toggle.dataset.dark;
+      } else if(type === "light") {
+        html.classList.remove("theme-dark");
+        html.classList.add("theme-light");
+        localStorage.setItem("attila_theme", "light");
+        toggleText.innerText = toggle.dataset.light;
+      } else {
+        html.classList.remove("theme-dark", "theme-light");
+        localStorage.removeItem("attila_theme");
+        toggleText.innerText = toggle.dataset.system;
+      }
     }
 
-    function dark() {
-      html.removeClass('theme-light').addClass('theme-dark');
-      localStorage.setItem('attila_theme', 'dark');
-      toggleText.text(toggle.attr('data-dark'));
-    }
-
-    function light() {
-      html.removeClass('theme-dark').addClass('theme-light');
-      localStorage.setItem('attila_theme', 'light');
-      toggleText.text(toggle.attr('data-light'));
-    }
-
-    switch (localStorage.getItem('attila_theme')) {
-      case 'dark':
-        dark();
-      break;
-      case 'light':
-        light();
-      break;
+    switch(localStorage.getItem("attila_theme")) {
+      case "dark":
+        set("dark");
+        break;
+      case "light":
+        set("light");
+        break;
       default:
-        system();
-      break;
+        set();
+        break;
     }
 
-    toggle.on('click', function (e) {
+    toggle.addEventListener("click", (e) => {
       e.preventDefault();
 
-      if (!html.hasClass('theme-dark') && !html.hasClass('theme-light')) {
-        dark();
-      } else if (html.hasClass('theme-dark')) {
-        light();
+      if(!html.classList.contains("theme-dark") &&
+        !html.classList.contains("theme-light")) {
+        set("dark");
+      } else if(html.classList.contains("theme-dark")) {
+        set("light");
       } else {
-        system();
+        set();
       }
     });
   }
   theme();
-});
+
+  /* ==========================================================================
+    Parallax cover
+    ========================================================================== */
+  const cover = $q(".cover");
+  let coverPosition = 0;
+
+  function parallax() {
+    if(cover && cover instanceof HTMLElement) {
+      const windowPosition = window.scrollY;
+      coverPosition = windowPosition > 0 ? Math.floor(windowPosition * 0.25) : 0;
+      cover.style.transform = `translate3d(0, ${coverPosition}px, 0)`;
+
+      if(window.scrollY < cover.clientHeight) {
+        html.classList.add("cover-active");
+      } else {
+        html.classList.remove("cover-active");
+      }
+    }
+  }
+  parallax();
+
+  $ael(window, "scroll", parallax);
+  $ael(window, "resize", parallax);
+  $ael(window, "orientationchange", parallax);
+})();
+
+/* === Functions callable from outside === */
+function launchDisqus(disqusShortname) {
+  const disqusScript = document.createElement("script");
+  disqusScript.src = `//${disqusShortname}.disqus.com/embed.js`;
+  disqusScript.async = true;
+  disqusScript.defer = true;
+  document.body.append(disqusScript);
+}
