@@ -1321,7 +1321,8 @@ textarea {
 	margin-right: 3rem;
 
 	&.active {
-		a:before {
+		a:before,
+		button:before {
 			position: absolute;
 			content: "";
 			width: 100%;
@@ -1344,7 +1345,7 @@ textarea {
 			}
 		}
 
-		a {
+		a, button {
 			color: var(--color-content-main);
 			font-weight: 600;
 
@@ -1354,7 +1355,7 @@ textarea {
 		}
 	}
 
-	a {
+	a, button {
 		display: block;
 		padding: 1rem 0;
 		font-size: 1.6em;
@@ -1408,8 +1409,16 @@ textarea {
 	li {
 		margin-right: 1rem;
 
-		a {
+		a, button {
 			font-size: 1.75em;
+		}
+
+		button {
+			cursor: pointer;
+			-webkit-appearance: none;
+			appearance: none;
+			background-color: transparent;
+			border: none;
 		}
 
 		span {
@@ -1430,7 +1439,7 @@ textarea {
 	}
 
 	.nav-header li {
-		a {
+		a, button {
 			@media only screen and (min-width: $breakpoint-medium) {
 				color: rgba(255,255,255,0.8);
 				border-color: rgba(255,255,255,0.8);
@@ -1445,7 +1454,8 @@ textarea {
 			}
 		}
 
-		&.active a {
+		&.active a,
+		&.active button {
 			@media only screen and (min-width: $breakpoint-medium) {
 				color: white;
 			}
@@ -1702,10 +1712,37 @@ textarea {
 .container {
 	position: relative;
 
-	.post .post-box {
-		padding-top: calc(4rem + 2vw);
-		padding-bottom: calc(4rem + 2vw);
-		border-bottom: 1px solid var(--color-background-contrast);
+	.post {
+		.post-loop-cover {
+			width: 100%;
+			height: calc(24rem + 4vw);
+			margin-top: calc(4rem + 2vw);
+			overflow: hidden;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				-webkit-user-drag: none;
+				transform: scale(1);
+				transition: transform 0.5s ease-in-out;
+
+				&:hover,
+				&:focus {
+					transform: scale(1.1);
+				}
+			}
+		}
+
+		.post-box {
+			padding-top: calc(4rem + 2vw);
+			padding-bottom: calc(4rem + 2vw);
+			border-bottom: 1px solid var(--color-background-contrast);
+		}
+
+		.post-loop-cover + .post-box {
+			padding-top: calc(2rem + 1vw);
+		}
 	}
 
 	#results .post:first-child .post-box {

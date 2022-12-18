@@ -1,27 +1,43 @@
 <div class="extra-pagination">
-	{{pagination}}
+  {{pagination}}
 </div>
 
 {{#foreach posts visibility="all"}}
 
 <article class="{{post_class}}">
-	<div class="inner">
-		<div class="box post-box">
-			<h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
-			<span class="post-meta">
-				{{#unless @custom.hide_author_in_homepage}}
-					{{t "By"}}
-					{{authors separator=", "}}
-				{{/unless}}
+  <div class="inner">
+    {{#if @custom.show_featured_image_in_homepage}}
+    {{#if feature_image}}
+    <div class="post-loop-cover">
+      <a href="{{url}}">
+        <img srcset="{{img_url feature_image size="s"}} 320w,
+                    {{img_url feature_image size="m"}} 640w,
+                    {{img_url feature_image size="l"}} 960w,
+                    {{img_url feature_image size="xl"}} 1920w"
+             src="{{img_url feature_image size="xl"}}"
+             alt="{{title}}"
+             loading="lazy" />
+      </a>
+    </div>
+    {{/if}}
+    {{/if}}
 
-				{{#primary_tag}}{{t "in"}} <a class="post-meta-tag" href="{{url}}" style="text-decoration-color: {{accent_color}}">{{name}}</a> &bull;{{/primary_tag}}
+    <div class="box post-box">
+      <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
+      <span class="post-meta">
+        {{#unless @custom.hide_author_in_homepage}}
+          {{t "By"}}
+          {{authors separator=", "}}
+        {{/unless}}
 
-				{{t "On"}}
-				<time datetime="{{date format=@custom.date_format}}">{{date format=@custom.date_format}}</time>
-			</span>
-			<p class="post-excerpt">{{excerpt}}&hellip;</p>
-		</div>
-	</div>
+        {{#primary_tag}}{{t "in"}} <a class="post-meta-tag" href="{{url}}" style="text-decoration-color: {{accent_color}}">{{name}}</a> &bull;{{/primary_tag}}
+
+        {{t "On"}}
+        <time datetime="{{date format=@custom.date_format}}">{{date format=@custom.date_format}}</time>
+      </span>
+      <p class="post-excerpt">{{excerpt}}&hellip;</p>
+    </div>
+  </div>
 </article>
 
 {{/foreach}}

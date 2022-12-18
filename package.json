@@ -101,6 +101,11 @@
         "default": false,
         "group": "homepage"
       },
+      "show_featured_image_in_homepage": {
+        "type": "boolean",
+        "default": true,
+        "group": "homepage"
+      },
       "disqus_shortname": {
         "type": "text",
         "default": "",
