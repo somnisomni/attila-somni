@@ -11,7 +11,7 @@
 	<meta name="HandheldFriendly" content="True" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	{{!-- Styles'n'Scripts --}}
+	{{!-- Styles & Scripts --}}
 	<link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
 
 	<script>
@@ -19,13 +19,13 @@
 	</script>
 
 	<script>
-			var localTheme = localStorage.getItem('attila_theme');
+			var localTheme = localStorage.getItem("attila_theme");
 			switch (localTheme) {
-					case 'dark':
-							document.documentElement.classList.add('theme-dark');
+					case "dark":
+							document.documentElement.classList.add("theme-dark");
 							break;
-					case 'light':
-							document.documentElement.classList.add('theme-light');
+					case "light":
+							document.documentElement.classList.add("theme-light");
 							break;
 					default:
 							break;
@@ -33,12 +33,12 @@
 	</script>
 
 	{{#match @custom.color_scheme "Dark"}}
-		<script>localStorage.setItem('attila_theme', 'dark');</script>
+		<script>localStorage.setItem("attila_theme", "dark");</script>
 		<style>.js-theme {display:none!important;}</style>
 	{{/match}}
 
 	{{#match @custom.color_scheme "Light"}}
-		<script>localStorage.setItem('attila_theme', 'light');</script>
+		<script>localStorage.setItem("attila_theme", "light");</script>
 		<style>.js-theme {display:none!important;}</style>
 	{{/match}}
 
@@ -90,7 +90,7 @@
 			<nav class="nav-wrapper" aria-label="{{t "Footer"}}">
 				<div class="nav-main">
 					<div class="nav-secondary-wrapper">
-						<span class="nav-copy">{{@site.title}} &copy; {{date format='YYYY'}}  <a class="nav-rss" title="RSS" href="{{@site.url}}/rss/" target="_blank"><i class="icon icon-rss" aria-hidden="true"></i></a></span>
+						<span class="nav-copy">{{@site.title}} &copy; {{date format="YYYY"}}  <a class="nav-rss" title="RSS" href="{{@site.url}}/rss/" target="_blank"><i class="icon icon-rss" aria-hidden="true"></i></a></span>
 						{{#if @site.secondary_navigation}}
 						{{navigation type="secondary"}}
 						{{/if}}
@@ -99,7 +99,7 @@
 					<span class="nav-credits">
 						{{t "Published with"}} <a href="https://ghost.org" target="_blank">Ghost</a>
 						&bull; {{t "Theme" }} <a href="https://github.com/somnisomni/attila-somni" target="_blank">Attila-somni</a>
-						&bull; <a class="menu-item js-theme" href="#" data-system="{{t 'System theme'}}" data-dark="{{t 'Dark theme'}}" data-light="{{t 'Light theme'}}">
+						&bull; <a class="menu-item js-theme" href="#" data-system="{{t "System theme"}}" data-dark="{{t "Dark theme"}}" data-light="{{t "Light theme"}}">
 							<span class="theme-icon"></span>
 							<span class="theme-text">{{t "System theme"}}</span>
 						</a>

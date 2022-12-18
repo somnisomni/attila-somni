@@ -58,9 +58,9 @@ Only 🇺🇸 English (US), 🇰🇷 Korean, 🇯🇵 Japanese localizations man
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
 <style>
   :root {
-    --font-primary: 'Mukta', sans-serif;
-    --font-secondary: 'Crimson Text', serif;
-    --font-monospace: 'Lucida Console', monospace;
+    --font-primary: "Mukta", sans-serif;
+    --font-secondary: "Crimson Text", serif;
+    --font-monospace: "Lucida Console", monospace;
   }
 </style>
 ````
