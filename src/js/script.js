@@ -184,7 +184,7 @@ function updateReadingProgress() {
   const progress = 100 - (((postBottom - (window.scrollY + windowHeight) + windowHeight / 3) / (postBottom - windowHeight + windowHeight / 3)) * 100);
 
   if(progress <= 100) {
-    progressBar.style.width = `${progress}%`;
+    progressBar.style.transform = `scaleX(${progress}%)`;
     progressBarContainer.classList.remove("complete");
   } else {
     progressBarContainer.classList.add("complete");
