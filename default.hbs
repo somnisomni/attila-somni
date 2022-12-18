@@ -15,12 +15,9 @@
 	<link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
 
 	<script>
-			var siteUrl = "{{@site.url}}";
-	</script>
-
-	<script>
-			var localTheme = localStorage.getItem("attila_theme");
-			switch (localTheme) {
+			const siteUrl = "{{@site.url}}";
+			const localTheme = localStorage.getItem("attila_theme");
+			switch(localTheme) {
 					case "dark":
 							document.documentElement.classList.add("theme-dark");
 							break;
