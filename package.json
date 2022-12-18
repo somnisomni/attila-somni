@@ -6,6 +6,7 @@
     "ghost": ">=5.0.0"
   },
   "license": "MIT",
+  "docs": "https://github.com/somnisomni/attila-somni/blob/master/README.md",
   "screenshots": {
     "desktop": "src/screenshot-desktop.jpg",
     "mobile": "src/screenshot-mobile.jpg"
