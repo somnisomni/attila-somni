@@ -14,7 +14,7 @@
 					{{authors separator=", "}}
 				{{/unless}}
 
-				{{#primary_tag}}{{t "in"}} <a class="post-meta-tag" href="{{url}}">{{name}}</a> &bull;{{/primary_tag}}
+				{{#primary_tag}}{{t "in"}} <a class="post-meta-tag" href="{{url}}" style="text-decoration-color: {{accent_color}}">{{name}}</a> &bull;{{/primary_tag}}
 
 				{{t "On"}}
 				<time datetime="{{date format=@custom.date_format}}">{{date format=@custom.date_format}}</time>

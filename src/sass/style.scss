@@ -1870,12 +1870,12 @@ textarea {
 
 	a {
 		display: inline-block;
-		text-decoration: none;
+		text-decoration: underline dotted 2px;
 		color: inherit;
 
 		&:focus,
 		&:hover {
-			text-decoration: underline;
+			text-decoration: underline 2px;
 		}
 	}
 }
