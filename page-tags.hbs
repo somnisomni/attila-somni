@@ -4,19 +4,18 @@
 {{#get "tags" limit="all" include="count.posts" order="count.posts desc"}}
 
 <header class="blog-header">
-	<div class="inner">
-		<div class="archive archive-tag box archive-box">
-			<h2 class="archive-title">{{t "Topics"}}</h2>
+  <div class="inner">
+    <div class="archive archive-tag box archive-box">
+      <h2 class="archive-title">{{t "Topics"}}</h2>
       <span class="archive-description">{{plural pagination.total empty=(t "No topics") singular=(t "% topics total") plural=(t "% topics total")}}</span>
-		</div>
-	</div>
+    </div>
+  </div>
 </header>
 
 <main class="content" role="main">
-	<article class="{{post_class}}">
-		<div class="inner">
-
-			<section class="post-content tags">
+  <article class="{{post_class}}">
+    <div class="inner">
+      <section class="post-content tags">
         {{#if tags}}
           {{#foreach tags}}
             <a class="tag-item" href="{{ url }}" style="--tag-accent-color: {{#if accent_color}} {{ accent_color }} {{else}} var(--ghost-accent-color) {{/if}}">
@@ -26,10 +25,9 @@
         {{else}}
         <p>{{t "No topics on this site!"}}</p>
         {{/if}}
-			</section>
-
-		</div>
-	</article>
+      </section>
+    </div>
+  </article>
 </main>
 
 {{/get}}

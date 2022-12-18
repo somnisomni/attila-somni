@@ -1,124 +1,121 @@
 <!DOCTYPE html>
 <html lang="{{@site.locale}}">
 <head>
+  {{!-- Document Settings --}}
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	{{!-- Document Settings --}}
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  {{!-- Base Meta --}}
+  <title>{{meta_title}}</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	{{!-- Base Meta --}}
-	<title>{{meta_title}}</title>
-	<meta name="HandheldFriendly" content="True" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {{!-- Styles & Scripts --}}
+  <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
 
-	{{!-- Styles & Scripts --}}
-	<link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+  <script>
+      const siteUrl = "{{@site.url}}";
+      const localTheme = localStorage.getItem("attila_theme");
+      switch(localTheme) {
+          case "dark":
+              document.documentElement.classList.add("theme-dark");
+              break;
+          case "light":
+              document.documentElement.classList.add("theme-light");
+              break;
+          default:
+              break;
+      }
+  </script>
 
-	<script>
-			const siteUrl = "{{@site.url}}";
-			const localTheme = localStorage.getItem("attila_theme");
-			switch(localTheme) {
-					case "dark":
-							document.documentElement.classList.add("theme-dark");
-							break;
-					case "light":
-							document.documentElement.classList.add("theme-light");
-							break;
-					default:
-							break;
-			}
-	</script>
+  {{#match @custom.color_scheme "Dark"}}
+    <script>localStorage.setItem("attila_theme", "dark");</script>
+    <style>.js-theme {display:none!important;}</style>
+  {{/match}}
 
-	{{#match @custom.color_scheme "Dark"}}
-		<script>localStorage.setItem("attila_theme", "dark");</script>
-		<style>.js-theme {display:none!important;}</style>
-	{{/match}}
+  {{#match @custom.color_scheme "Light"}}
+    <script>localStorage.setItem("attila_theme", "light");</script>
+    <style>.js-theme {display:none!important;}</style>
+  {{/match}}
 
-	{{#match @custom.color_scheme "Light"}}
-		<script>localStorage.setItem("attila_theme", "light");</script>
-		<style>.js-theme {display:none!important;}</style>
-	{{/match}}
+  {{#match @custom.color_scheme "!=" "Light"}}
+    {{#if @custom.darkmode_accent_color}}
+      <style>
+        .theme-dark:root {
+          --ghost-accent-color: {{@custom.darkmode_accent_color}};
+        }
+        @media (prefers-color-scheme: dark) {
+          html:not(.theme-light):root {
+            --ghost-accent-color: {{@custom.darkmode_accent_color}};
+          }
+        }
+      </style>
+    {{/if}}
+  {{/match}}
 
-	{{#match @custom.color_scheme "!=" "Light"}}
-		{{#if @custom.darkmode_accent_color}}
-			<style>
-				.theme-dark:root {
-				  --ghost-accent-color: {{@custom.darkmode_accent_color}};
-				}
-				@media (prefers-color-scheme: dark) {
-				  html:not(.theme-light):root {
-				    --ghost-accent-color: {{@custom.darkmode_accent_color}};
-				  }
-				}
-			</style>
-		{{/if}}
-	{{/match}}
-
-	{{ghost_head}}
+  {{ghost_head}}
 </head>
 
 <body class="{{body_class}} {{#unless @custom.use_highlightjs_background_color_for_code_blocks}} ignore-hljs-bg-color {{/unless}}">
+  <div class="nav-header">
+    <nav class="nav-wrapper" aria-label="{{t "Main"}}">
+        {{#if @site.logo}}
+        <span class="logo">
+          <a href="{{@site.url}}" title="{{t "Home"}}"><img src="{{@site.logo}}" alt="{{t "Logo"}}" /></a>
+        </span>
+        {{/if}}
+        {{navigation}}
+        {{> "navigation-meta"}}
+    </nav>
 
-	<div class="nav-header">
-		<nav class="nav-wrapper" aria-label="{{t "Main"}}">
-				{{#if @site.logo}}
-				<span class="logo">
-					<a href="{{@site.url}}" title="{{t "Home"}}"><img src="{{@site.logo}}" alt="{{t "Logo"}}" /></a>
-				</span>
-				{{/if}}
-				{{navigation}}
-				{{> "navigation-meta"}}
-		</nav>
+    <div class="nav-wrapper-control">
+      <div class="inner">
+        <a class="nav-menu" role="button"><i class="icon icon-menu" aria-hidden="true"></i>{{t "Menu"}}</a>
+        <a class="nav-search" title="{{t "Search"}}" role="button" data-ghost-search><i class="icon icon-search" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
 
-		<div class="nav-wrapper-control">
-			<div class="inner">
-				<a class="nav-menu" role="button"><i class="icon icon-menu" aria-hidden="true"></i>{{t "Menu"}}</a>
-				<a class="nav-search" title="{{t "Search"}}" role="button" data-ghost-search><i class="icon icon-search" aria-hidden="true"></i></a>
-			</div>
-		</div>
-	</div>
-	<div class="nav-close" role="button" aria-label="{{t "Close"}}"></div>
+  <div class="nav-close" role="button" aria-label="{{t "Close"}}"></div>
 
-	<section class="page-wrapper">
+  <section class="page-wrapper">
+    {{{body}}}
 
-		{{{body}}}
+    <div class="nav-footer">
+      <nav class="nav-wrapper" aria-label="{{t "Footer"}}">
+        <div class="nav-main">
+          <div class="nav-secondary-wrapper">
+            <span class="nav-copy">{{@site.title}} &copy; {{date format="YYYY"}}  <a class="nav-rss" title="RSS" href="{{@site.url}}/rss/" target="_blank"><i class="icon icon-rss" aria-hidden="true"></i></a></span>
+            {{#if @site.secondary_navigation}}
+            {{navigation type="secondary"}}
+            {{/if}}
+          </div>
 
-		<div class="nav-footer">
-			<nav class="nav-wrapper" aria-label="{{t "Footer"}}">
-				<div class="nav-main">
-					<div class="nav-secondary-wrapper">
-						<span class="nav-copy">{{@site.title}} &copy; {{date format="YYYY"}}  <a class="nav-rss" title="RSS" href="{{@site.url}}/rss/" target="_blank"><i class="icon icon-rss" aria-hidden="true"></i></a></span>
-						{{#if @site.secondary_navigation}}
-						{{navigation type="secondary"}}
-						{{/if}}
-					</div>
+          <span class="nav-credits">
+            {{t "Published with"}} <a href="https://ghost.org" target="_blank">Ghost</a>
+            &bull; {{t "Theme" }} <a href="https://github.com/somnisomni/attila-somni" target="_blank">Attila-somni</a>
+            &bull; <a class="menu-item js-theme" href="#" data-system="{{t "System theme"}}" data-dark="{{t "Dark theme"}}" data-light="{{t "Light theme"}}">
+              <span class="theme-icon"></span>
+              <span class="theme-text">{{t "System theme"}}</span>
+            </a>
+          </span>
+        </div>
 
-					<span class="nav-credits">
-						{{t "Published with"}} <a href="https://ghost.org" target="_blank">Ghost</a>
-						&bull; {{t "Theme" }} <a href="https://github.com/somnisomni/attila-somni" target="_blank">Attila-somni</a>
-						&bull; <a class="menu-item js-theme" href="#" data-system="{{t "System theme"}}" data-dark="{{t "Dark theme"}}" data-light="{{t "Light theme"}}">
-							<span class="theme-icon"></span>
-							<span class="theme-text">{{t "System theme"}}</span>
-						</a>
-					</span>
-				</div>
+        {{#if @custom.footer_custom_text}}
+        <div class="nav-custom-text">{{@custom.footer_custom_text}}</div>
+        {{/if}}
+      </nav>
+    </div>
+  </section>
 
-				{{#if @custom.footer_custom_text}}
-				<div class="nav-custom-text">{{@custom.footer_custom_text}}</div>
-				{{/if}}
-			</nav>
-		</div>
+  {{!-- Load basic scripts --}}
+  <script type="text/javascript" src="{{asset "js/script.js"}}"></script>
 
-	</section>
+  {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
+  {{{block "scripts"}}}
 
-	{{!-- Load basic scripts --}}
-	<script type="text/javascript" src="{{asset "js/script.js"}}"></script>
-
-	{{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
-	{{{block "scripts"}}}
-
-	{{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
-	{{ghost_foot}}
+  {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+  {{ghost_foot}}
 
 </body>
 </html>
