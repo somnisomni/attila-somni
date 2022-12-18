@@ -37,12 +37,11 @@
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
 <script>
-  $(document).ready(function () {
-		var post = $(".post-content");
+	(() => {
 		// Responsive videos with fitVids
-    post.fitVids();
+    $(".post-content").fitVids();
 		// Format code blocks and add line numbers
 		applyCodeHighlight();
-  });
+	})();
 </script>
 {{/contentFor}}

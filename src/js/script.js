@@ -1,6 +1,6 @@
-(() => {
-  "use strict";
+"use strict";
 
+(() => {
   const html = document.documentElement;
   const $q = (query = "") => document.querySelector(query);
   const $qa = (query = "") => document.querySelectorAll(query);
@@ -172,4 +172,21 @@ function applyCodeHighlight() {
       e.parentElement.append(linesElement);
     }
   });
+}
+
+function updateReadingProgress() {
+  const post = document.querySelector(".post-content");
+  const progressBar = document.querySelector(".progress-bar");
+  const progressBarContainer = document.querySelector(".progress-container");
+
+  const postBottom = (post.getBoundingClientRect().top + window.scrollY) + post.clientHeight;
+  const windowHeight = window.innerHeight;
+  const progress = 100 - (((postBottom - (window.scrollY + windowHeight) + windowHeight / 3) / (postBottom - windowHeight + windowHeight / 3)) * 100);
+
+  if(progress <= 100) {
+    progressBar.style.width = `${progress}%`;
+    progressBarContainer.classList.remove("complete");
+  } else {
+    progressBarContainer.classList.add("complete");
+  }
 }

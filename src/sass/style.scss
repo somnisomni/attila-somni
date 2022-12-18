@@ -1475,6 +1475,8 @@ textarea {
 	width: 0;
 	height: 3px;
 	background: var(--ghost-accent-color);
+
+	transition: width ease-out 0.05s;
 }
 /* ==========================================================================
    Footer
