@@ -147,3 +147,29 @@ function launchDisqus(disqusShortname) {
   disqusScript.defer = true;
   document.body.append(disqusScript);
 }
+
+function applyCodeHighlight() {
+  const codeElements = document.querySelectorAll("pre code");
+  codeElements.forEach((e) => {
+    hljs.highlightElement(e);
+
+    if(!e.classList.contains("language-text")) {
+      let lines = e.innerHTML.split(/\n(?!$)/g).length;
+      if(lines > 1) lines++;
+
+      const linesElement = document.createElement("div");
+      linesElement.classList.add("lines");
+
+      for(let i = 1; i < lines; i++) {
+        const lineElement = document.createElement("div");
+        lineElement.classList.add("line");
+        lineElement.setAttribute("aria-hidden", true);
+        lineElement.innerText = i;
+
+        linesElement.append(lineElement);
+      }
+
+      e.parentElement.append(linesElement);
+    }
+  });
+}
