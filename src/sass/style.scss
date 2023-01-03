@@ -1912,12 +1912,16 @@ textarea {
 
   a {
     display: inline-block;
-    text-decoration: underline dotted 2px;
     color: inherit;
+    text-decoration: none;
 
-    &:focus,
-    &:hover {
-      text-decoration: underline 2px;
+    .post-box & {
+      text-decoration: underline dotted 2px;
+
+      &:focus,
+      &:hover {
+        text-decoration: underline 2px;
+      }
     }
   }
 }
