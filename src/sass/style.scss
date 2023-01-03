@@ -221,6 +221,11 @@ textarea {
     font-size: 0.9em;
   }
 
+  s {
+    color: var(--color-content-secondary);
+    opacity: 0.8;
+  }
+
   dl {
     font-family: var(--font-secondary);
     margin: 0 0 4rem;
