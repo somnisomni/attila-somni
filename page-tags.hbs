@@ -18,12 +18,12 @@
       <section class="post-content tags">
         {{#if tags}}
           {{#foreach tags}}
-            <a class="tag-item" href="{{ url }}" style="--tag-accent-color: {{#if accent_color}} {{ accent_color }} {{else}} var(--ghost-accent-color) {{/if}}">
+            <a class="tag-item" href="{{ url }}" style="--tag-accent-color: {{#if accent_color}} {{ accent_color }}; {{else}} var(--ghost-accent-color); {{/if}}">
               <span class="tag-title">{{ name }} <small>({{ count.posts }})</small></span>
             </a>
           {{/foreach}}
         {{else}}
-        <p>{{t "No topics on this site!"}}</p>
+          <p>{{t "No topics on this site!"}}</p>
         {{/if}}
       </section>
     </div>
