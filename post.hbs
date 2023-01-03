@@ -18,6 +18,7 @@
 
     <h1 class="post-title">{{{title}}}</h1>
     <div class="post-meta">
+      {{#if @custom.show_author_in_post}}
       <div class="post-meta-avatars">
         {{#foreach authors}}
           <figure class="post-meta-avatar avatar">
@@ -30,7 +31,9 @@
         {{/foreach}}
       </div>
       <h4 class="post-meta-author">{{authors separator=", "}}</h4>
-      <time datetime="{{date format=@custom.date_format}}">{{date format=@custom.date_format}}</time> &bull; {{reading_time minute=(t "1 min read") minutes=(t "% min read")}}
+      {{/if}}
+
+      <span><time datetime="{{date format=@custom.date_format}}">{{date format=@custom.date_format}}</time></span> &bull; {{reading_time minute=(t "1 min read") minutes=(t "% min read")}}
     </div>
 
     {{#if feature_image}}
