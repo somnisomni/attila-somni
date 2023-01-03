@@ -1,4 +1,4 @@
-:root {
+@mixin vars-light {
   --color-background-main: #FFF;
   --color-background-secondary: #F7F8FA;
   --color-background-contrast: #E1E3E6;
@@ -6,9 +6,10 @@
   --color-content-lead: #000;
   --color-content-main: #222426;
   --color-content-secondary: #73777D;
+  --color-content-inline-code: #A00;
 }
 
-.theme-dark:root {
+@mixin vars-dark {
   --color-background-main: #222426;
   --color-background-secondary: #1D1F20;
   --color-background-contrast: #3B3D40;
@@ -16,16 +17,20 @@
   --color-content-lead: #FFF;
   --color-content-main: #E1E3E6;
   --color-content-secondary: #909499;
+  --color-content-inline-code: #E77;
+}
+
+
+:root {
+  @include vars-light;
+}
+
+.theme-dark:root {
+  @include vars-dark;
 }
 
 @media (prefers-color-scheme: dark) {
   html:not(.theme-light):root {
-    --color-background-main: #222426;
-    --color-background-secondary: #1D1F20;
-    --color-background-contrast: #3B3D40;
-    --color-background-overlay: rgba(9,10,13,0.9);
-    --color-content-lead: #FFF;
-    --color-content-main: #E1E3E6;
-    --color-content-secondary: #909499;
+    @include vars-dark;
   }
 }
