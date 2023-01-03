@@ -1906,8 +1906,8 @@ textarea {
 
 .post-meta {
   font-weight: 400;
-  font-size: 1.6em;
-  line-height: 2rem;
+  font-size: 1.75em;
+  line-height: 2.5rem;
   color: var(--color-content-secondary);
 
   a {
@@ -1930,6 +1930,11 @@ textarea {
   position: relative;
   padding-bottom: 4rem;
   z-index: 10;
+  
+  @media only screen and (max-width: $breakpoint-small) {
+    font-size: 1.66em;
+    line-height: 2.25rem;
+  }
 
   &:after {
     clear: both;
