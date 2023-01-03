@@ -263,14 +263,19 @@ textarea {
   code,
   tt {
     position: relative;
-    margin: 0 1px;
-    padding: 4px 8px;
+    margin: 0 2px;
+    padding: 4px 6px;
+    border-radius: 6px;
     font-family: var(--font-monospace);
     font-size: 0.75em;
     background: var(--color-background-secondary);
     border: 1px solid var(--color-background-contrast);
-    top: -2px;
-    white-space: pre-wrap;
+    white-space: nowrap;
+  }
+
+  :not(pre) code,
+  :not(pre) tt {
+    color: #C00;
   }
 
   pre {
