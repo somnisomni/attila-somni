@@ -60,7 +60,7 @@ textarea {
   a:not([class]) {
     color: inherit;
     text-decoration: none;
-    font-weight: 400;
+    // font-weight: 400;
     box-shadow: inset 0 -2px 0 var(--ghost-accent-color);
     transition: all ease-out 0.1s;
 
@@ -1157,7 +1157,7 @@ textarea {
   margin: 0 auto;
   padding: 0 8rem;
   @media only screen and (max-width: $breakpoint-medium) {
-    padding: 0 4rem;
+    padding: 0 2rem;
   }
 }
 
