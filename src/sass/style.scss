@@ -1560,6 +1560,7 @@ textarea {
 .nav-footer .nav-wrapper .nav-custom-text {
   margin-top: 1.5rem;
   font-size: 1.6em;
+  line-height: 2.5rem;
   color: var(--color-content-secondary);
   opacity: 0.8;
 
@@ -1624,7 +1625,7 @@ textarea {
 .nav-copy {
   display: block;
   font-size: 1.6em;
-  line-height: 2rem;
+  line-height: 2.5rem;
   color: var(--color-content-secondary);
   white-space: nowrap;
 
@@ -1646,11 +1647,15 @@ textarea {
   display: block;
   margin-left: 2rem;
   font-size: 1.6em;
-  line-height: 2rem;
+  line-height: 2.5rem;
   color: var(--color-content-secondary);
 
   @media only screen and (max-width: $breakpoint-medium) {
     margin-right: auto;
+  }
+
+  & > span {
+    display: inline-block;
   }
 
   a {
