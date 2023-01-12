@@ -271,7 +271,7 @@ textarea {
     font-size: 0.8em;
     background: var(--color-background-secondary);
     border: 1px solid var(--color-background-contrast);
-    white-space: nowrap;
+    word-break: keep-all;
   }
 
   :not(pre) code,
