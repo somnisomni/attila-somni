@@ -333,6 +333,10 @@ textarea {
     background: transparent;
     border: none;
     vertical-align: inherit;
+
+    &[class^="language"] {
+      color: $hljs-foreground;
+    }
   }
 
   pre code.language-text {
