@@ -2054,23 +2054,53 @@ textarea {
 
 .post-content.tags {
   /* /tags page */
+  --tag-item-size: 150px;
+
+  margin-top: 1em;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
 
+  & > * {
+    min-width: initial;
+    max-width: initial;
+  }
+
   a.tag-item {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
     color: inherit;
+    background: var(--tag-accent-color);
     text-decoration: none;
+    text-align: center;
     font-weight: 400;
     margin: 1em;
-    min-width: 200px;
-    width: calc(50% - (1em * 2));
-    box-shadow: inset 0 -2px 0 var(--tag-accent-color);
+    width: var(--tag-item-size);
+    min-width: var(--tag-item-size);
+    max-width: var(--tag-item-size);
+    height: var(--tag-item-size);
+    min-height: var(--tag-item-size);
+    max-height: var(--tag-item-size);
+  
     transition: all ease-out 0.1s;
 
-    &:focus,
-    &:hover {
-      box-shadow: inset 0 -3px 0 var(--tag-accent-color);
+    .tag-title {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.33em;
+      word-break: keep-all;
+    }
+
+    .tag-post-count {
+      width: calc(100% - 2px);
+      margin: 1px;
+      background: var(--color-background-main);
     }
   }
 }

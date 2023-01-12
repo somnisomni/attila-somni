@@ -190,3 +190,21 @@ function updateReadingProgress() {
     progressBarContainer.classList.add("complete");
   }
 }
+
+function applyTagTitleContrast() {
+  // Intended to be used in `page-tags.hbs`, but decided to not use this
+  document.querySelectorAll(".tag-item").forEach((e) => {
+    const accentColor = e.dataset.accentColor;
+    if(!(accentColor && accentColor.length === 7 && accentColor.startsWith("#"))) {
+      return;
+    }
+
+    const [r, g, b] = /^#(..)(..)(..)$/.exec(accentColor).slice(1).map((v) => parseInt(v, 16));
+    const rgbSum = r + g + b;
+    let titleShouldBeBlack = rgbSum >= (0xFF * 3) / 1.5;
+
+    if(titleShouldBeBlack) {
+      e.querySelector(".tag-title").style.color = "black";
+    }
+  });
+}

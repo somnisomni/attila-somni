@@ -18,8 +18,13 @@
       <section class="post-content tags">
         {{#if tags}}
           {{#foreach tags}}
-            <a class="tag-item" href="{{ url }}" style="--tag-accent-color: {{#if accent_color}} {{ accent_color }}; {{else}} var(--ghost-accent-color); {{/if}}">
-              <span class="tag-title">{{ name }} <small>({{ count.posts }})</small></span>
+            <a class="tag-item" href="{{ url }}"
+               {{#if accent_color}} data-accent-color="{{ accent_color }}" {{/if}}
+               style="--tag-accent-color: {{#if accent_color}} {{ accent_color }}; {{else}} var(--ghost-accent-color); {{/if}}">
+              <div class="tag-title"><span>{{ name }}</span></div>
+              <div class="tag-post-count">
+                {{plural count.posts empty=(t "No Posts") singular=(t "<strong>%</strong> Post") plural=(t "<strong>%</strong> Posts")}}
+              </div>
             </a>
           {{/foreach}}
         {{else}}
