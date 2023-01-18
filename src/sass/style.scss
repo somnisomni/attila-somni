@@ -2085,7 +2085,7 @@ textarea {
     min-height: var(--tag-item-size);
     max-height: var(--tag-item-size);
   
-    transition: transform 0.75s cubic-bezier(0, 0, 0, 1);
+    transition: transform 0.5s cubic-bezier(0, 0, 0, 1);
 
     &:hover, &:focus {
       transform: scale(1.048) translateZ(0);
