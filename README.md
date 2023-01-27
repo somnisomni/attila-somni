@@ -86,5 +86,5 @@ $ grunt build
 ## ⚖️ Copyright & License
 
 Copyright (C) 2015-2022 Peter Amende  
-Copyright (C) 2022 somni  
+Copyright (C) 2022- somni  
 Released under the [MIT License](https://github.com/zutrinken/attila/blob/master/LICENSE).
