@@ -361,14 +361,19 @@ textarea {
     width: 100%;
     max-width: 100%;
     margin: 0 0 4rem;
-    border: 1px solid var(--color-background-contrast);
-    background: var(--color-background-secondary);
+    border-collapse: collapse;
+    // border: 1px solid var(--color-background-contrast);
+    // background: var(--color-background-secondary);
 
     @media (max-width: $breakpoint-medium) {
       display: block;
-      border: none;
+      // border: none;
       overflow-x: auto;
-      box-shadow: inset 0 0 0 1px var(--color-background-contrast);
+      // box-shadow: inset 0 0 0 1px var(--color-background-contrast);
+    }
+
+    thead {
+      border-bottom: solid 2px var(--ghost-accent-color);
     }
 
     td,
@@ -377,7 +382,7 @@ textarea {
       padding: 1.5rem;
       font-size: 0.75em;
       line-height: 1.33334em;
-      border: 1px solid var(--color-background-contrast);
+      // border: 1px solid var(--color-background-contrast);
     }
 
     th {
@@ -387,6 +392,10 @@ textarea {
       font-size: 0.75em;
       line-height: 1.33334em;
       color: var(--color-content-secondary);
+    }
+
+    tbody tr {
+      border-bottom: solid 1px var(--color-background-contrast);
     }
   }
 
@@ -1848,7 +1857,7 @@ textarea {
   margin-bottom: 2rem;
   font-size: 2em;
   line-height: 1em;
-  
+
   @media only screen and (max-width: $breakpoint-small) {
     font-size: 1.75em;
   }
@@ -1914,7 +1923,7 @@ textarea {
   margin: 0 0 4rem;
   font-size: 6em;
   line-height: 1.25em;
-  
+
   @media only screen and (max-width: $breakpoint-small) {
     font-size: 4.5em;
   }
@@ -1950,7 +1959,7 @@ textarea {
   position: relative;
   padding-bottom: 4rem;
   z-index: 10;
-  
+
   @media only screen and (max-width: $breakpoint-small) {
     font-size: 1.66em;
     line-height: 2.25rem;
@@ -2071,7 +2080,7 @@ textarea {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  
+
     color: inherit;
     background: var(--tag-accent-color);
     text-decoration: none;
@@ -2084,7 +2093,7 @@ textarea {
     height: var(--tag-item-size);
     min-height: var(--tag-item-size);
     max-height: var(--tag-item-size);
-  
+
     transition: transform 0.5s cubic-bezier(0, 0, 0, 1);
 
     &:hover, &:focus {
