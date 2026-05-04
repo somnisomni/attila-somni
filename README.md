@@ -1,3 +1,6 @@
+> [!WARNING]
+> I don't maintain this custom theme anymore since I moved to Hugo.
+
 # Attila-somni
 
 A content focused responsive theme for [Ghost](https://github.com/tryghost/ghost/). Customized for somni's own blog, [솜니.로그](https://log.somni.one).
